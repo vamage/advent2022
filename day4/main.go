@@ -14,6 +14,7 @@ func main() {
 	fmt.Printf("part 1: %d\n", fullSubsets)
 	fmt.Printf("part 2: %d\n", partialSubsets)
 }
+
 func findSubsets(data []string) int {
 	var a, b, c, d int
 	count := 0

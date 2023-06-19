@@ -9,7 +9,6 @@ import (
 )
 
 func main() {
-
 	lines := loadFile("input.txt")
 	elves := calories(lines)
 	getlargestn(elves, 1)
@@ -38,7 +37,6 @@ func loadFile(filename string) []string {
 		log.Fatal(err)
 	}
 	return lines
-
 }
 
 func calories(input []string) []int {
@@ -46,7 +44,6 @@ func calories(input []string) []int {
 	cal := 0
 	c := 0
 	for _, element := range input {
-
 		if element == "" {
 
 			fmt.Printf("Elf %d , calories %d \n", c+1, cal)
@@ -56,7 +53,6 @@ func calories(input []string) []int {
 		} else {
 			i, err := strconv.Atoi(element)
 			if err != nil {
-
 				log.Fatal(err)
 			}
 
@@ -89,5 +85,4 @@ func getlargestn(input []int, n int) {
 		m += v
 	}
 	fmt.Printf("largest n elves %d\n", m)
-
 }

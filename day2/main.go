@@ -13,7 +13,6 @@ type strat struct {
 }
 
 func main() {
-
 	lines := loadFile("input.txt")
 	score(lines)
 	scorev2(lines)
@@ -46,7 +45,6 @@ func loadFile(filename string) []strat {
 		log.Fatal(err)
 	}
 	return lines
-
 }
 
 func score(input []strat) {
@@ -54,52 +52,49 @@ func score(input []strat) {
 	for _, element := range input {
 		round := 0
 		s := element.opponent - (element.you - 23)
-		//fmt.Printf("%d %d, %d \n", element.opponent, (element.you), s)
+		// fmt.Printf("%d %d, %d \n", element.opponent, (element.you), s)
 		if element.you == 0 {
 			// tie elements are equal
 			round = 3
 		} else if s == -1 || s == 2 {
-			//win you are one off from your oppenent and wrap around
+			// win you are one off from your oppenent and wrap around
 			round = 6
 		}
 		round = round + element.you - 87
-		//fmt.Printf("round %d\n", round)
+		// fmt.Printf("round %d\n", round)
 		sum += round
 	}
 
 	fmt.Printf("sum %d \n", sum)
-
 }
+
 func scorev2(input []strat) {
 	sum := 0
 	for _, element := range input {
 		round := 0
 		s := element.opponent - 64
-		//fmt.Printf("%d %d, %d \n", element.opponent, (element.you ), s)
+		// fmt.Printf("%d %d, %d \n", element.opponent, (element.you ), s)
 		if element.you == 89 {
-			//tie Y= 89
+			// tie Y= 89
 			round = 3
-
 		} else if element.you == 90 {
-			//win Z =6
+			// win Z =6
 			round = 6
 			s++
-			if s>3 {
-				s=1
+			if s > 3 {
+				s = 1
 			}
 		} else {
 			s--
-				if s<1 {
-				s=3
+			if s < 1 {
+				s = 3
 			}
-			
 
 		}
 		round = round + s
-		//fmt.Printf("round %d\n", round)
+		// fmt.Printf("round %d\n", round)
 		sum += round
 	}
 
 	fmt.Printf("sum %d \n", sum)
-
 }
